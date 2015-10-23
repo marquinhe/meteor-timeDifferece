@@ -3,12 +3,23 @@
     <a class="btn-floating btn-large waves-effect waves-light red lighten-2 right" href="{{pathFor 'new'}}"><i class="mdi-content-add"></i></a>
 
     <h5>History</h5>
+    <div class="">
+		 <select class="equivalents">
+		  <option selected="selected">Choose option</option>
+			 <option value="ms">Miliseconds</option>
+			 <option value="s">Seconds</option>
+			 <option value="m">Minutes</option>
+			 <option value="h">hours</option>
+			 <option value="h">month</option>
+			 <option value="y">year</option>
+		 </select>
+    </div>
 
     <ul class="collection">
       {{#each dates}}
         <li class="collection-item avatar">
           <i class="mdi-action-done circle red lighten-2"></i>
-          <span class="title">Total {{ type }}: {{ substractDate date1 tz1 date2 tz2 type}}</span>
+          <span class="title">Total {{ type }}: {{ substractDate date1 tz1 date2 tz2 type}} - ({{ duration date1 tz1 date2 tz2 type}})</span>
           <p class="truncate">
           <strong>From:</strong> {{ formatDate date1 }} -  <strong>To:</strong> {{ formatDate date2 }}
           </p>

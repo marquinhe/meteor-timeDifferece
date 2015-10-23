@@ -31,6 +31,15 @@ Template.registerHelper('formatDate', function(created) {
    return moment(created).format('LL');
 });
 
+
+Template.registerHelper('duration', function(date1, timezone1, date2, timezone2, durationType) {
+
+	durationValue = UI._globalHelpers('substractDate')(date1, timezone1, date2, timezone2, durationType);
+
+  	return moment.duration(durationValue,durationType).asYears();
+});
+
+
 function calculateWeekdays(start, end){
 
 	 var first = start.clone().endOf('week'); // end of first week
