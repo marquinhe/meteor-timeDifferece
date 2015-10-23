@@ -1,0 +1,3 @@
+NewController = AppController.extend({
+
+});

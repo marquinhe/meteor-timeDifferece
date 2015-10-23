@@ -8,7 +8,7 @@ AutoForm.hooks({
 });
 
 
-Template.itemsNew.rendered = function() {
+Template.new.rendered = function() {
 
 $('select').material_select();
 

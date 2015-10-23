@@ -30,3 +30,4 @@ templating
 mrt:moment
 mrt:moment-timezone
 joshowens:timezone-picker
+hellotech:meteor-momentjs-business

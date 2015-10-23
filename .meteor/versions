@@ -26,6 +26,7 @@ fastclick@1.0.3-rc.0
 geojson-utils@1.0.3-rc.0
 gildaspk:autoform-materialize@0.0.3
 handlebars@1.0.3-rc.0
+hellotech:meteor-momentjs-business@0.0.2
 html-tools@1.0.4-rc.0
 htmljs@1.0.4-rc.0
 http@1.1.0-rc.0
@@ -53,7 +54,7 @@ meteor-platform@1.2.2-rc.0
 minifiers@1.1.4-win.0
 minimongo@1.0.7-rc.0
 mobile-status-bar@1.0.3-rc.0
-momentjs:moment@2.9.0
+momentjs:moment@2.10.0
 mongo@1.1.0-rc.0
 mrt:moment@2.8.1
 mrt:moment-timezone@0.2.1
