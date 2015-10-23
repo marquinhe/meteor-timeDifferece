@@ -1,19 +1,18 @@
 <template name="dashboard">
   <div class="template-dashboard">
-    <a class="btn-floating btn-large waves-effect waves-light red lighten-2 right" href="{{pathFor 'items.new'}}"><i class="mdi-content-add"></i></a>
+    <a class="btn-floating btn-large waves-effect waves-light red lighten-2 right" href="{{pathFor 'new'}}"><i class="mdi-content-add"></i></a>
 
-    <h5>History Results</h5>
+    <h5>History</h5>
 
     <ul class="collection">
       {{#each dates}}
         <li class="collection-item avatar">
           <i class="mdi-action-done circle red lighten-2"></i>
-          <span class="title">Total {{ type }}: {{ substractDate date1 date2 }}</span>
+          <span class="title">Total {{ type }}: {{ substractDate date1 tz1 date2 tz2 type}}</span>
           <p class="truncate">
-           {{ date1 }} - {{ date2 }}
-		   sfsf {{ tz1 }}
+          <strong>From:</strong> {{ formatDate date1 }} -  <strong>To:</strong> {{ formatDate date2 }}
           </p>
-          <span class="secondary-content"><i class="mdi-action-grade"></i> {{ rating }}</span>
+          <span class="secondary-content"><i class="mdi-action-grade"></i>   {{ when createdAt }}</span>
         </li>
       {{/each}}
     </ul>

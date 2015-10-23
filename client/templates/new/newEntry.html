@@ -1,32 +1,32 @@
-<template name="itemsNew">
+<template name="new">
   <a class="btn-floating btn-large waves-effect waves-light red lighten-2 right" href="{{pathFor 'dashboard'}}"><i class="mdi-navigation-arrow-back"></i></a>
-  <h4>Date Diff</h4>
+  <h5>Select two dates / timezones</h5>
   <div class="card-panel">
-	  
+
 	{{#autoForm collection="Dates" id="insertDates" type="insert" template="bootstrap3"}}
 	    <fieldset>
 	      <legend>Start Date</legend>
 	      {{> afQuickField name='date1'}}
 		   {{> afQuickField name='tz1' class="type" template="bootstrap3"}}
 		   </fieldset>
-		  
+
  	    <fieldset>
  	      <legend>End Date</legend>
-		  
+
 	      {{> afQuickField name='date2'}}
-		  
+
 		   {{> afQuickField name='tz2' class="type" template="bootstrap3"}}
 		   </fieldset>
-		   
+
 	 <fieldset>
-		  <legend>Calculate</legend>
+		  <legend>Calculate Difference of:</legend>
 		  <div>
    	      		{{> afQuickField name='type' class="type" template="bootstrap3"}}
 		  </div>
    		   </fieldset>
-	   
+
 	    <button type="submit" class="btn btn-primary right">GO</button>
-	  {{/autoForm}}  
+	  {{/autoForm}}
 
   </div>
 </template>
