@@ -1,4 +1,5 @@
 Meteor.startup(function() {
+	
 
   Meteor.Mailgun.config({
     username: 'postmaster@domain.com',

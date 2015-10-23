@@ -1,6 +1,6 @@
-Items.allow({
-  'insert': function(userId, doc) {
-    return userId;
+Dates.allow({
+  'insert': function() {
+    return true;
   },
   'update': function(userId, doc, fields, modifier) {
     return userId;
@@ -9,3 +9,5 @@ Items.allow({
     return userId;
   }
 });
+
+

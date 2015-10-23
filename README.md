@@ -1,17 +1,38 @@
-# Meteor Boilerplate - Material Design Version
+# Calculate Time difference between two dates - with meteor & material design
+----------
 
-A starting point for MeteorJS applications that use Material Design. Includes Iron Router, Materialize.css, AutoForm and more.
 
-For our Bootstrap version, see the [master branch](https://github.com/Differential/meteor-boilerplate/tree/master).
+1. Find out the number of days between two datetime parameters.
+ 
+2. Find out the number of weekdays between two datetime parameters.
+ 
+3. Find out the number of complete weeks between two datetime parameters.
+ 
+4. Accept a third parameter to convert the result of (1, 2 or 3) into one of seconds, minutes, hours, years.
+ 
+5. Allow the specification of a timezone for comparison of input parameters from different timezones. 
 
-* [Included Packages](#included-packages)
-* [Installation](#installation)
-* [File Structure](#file-structure)
-* [SEO](#seo)
-* [Favicons and Touch Icons](#favicons-and-touch-icons)
-* [Seed Data](#seed-data)
+6. **Live Demo:** Check out [<i class="icon-link"></i> Publish a document](#publish-a-document)
 
-## <a name="included-packages"></a> Included Packages
+----------
+## Installation
+
+0. Install meteor: https://www.meteor.com/install
+
+1. Clone this repo to `<yourapp>`
+
+  `git clone https://github.com/marquinhe/meteor-timeDifferece.git <yourapp>`
+
+2. Remove `.git`
+
+  `cd <yourapp> && rm -rf .git`
+
+3. Run meteor
+
+   `meteor`
+
+----------
+## Included Packages
 
 * [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
   * [materialize:materialize](http://materializecss.com/)
@@ -34,76 +55,8 @@ For our Bootstrap version, see the [master branch](https://github.com/Differenti
   * [dburles:factory](https://github.com/percolatestudio/meteor-factory)
   * [anti:fake](https://github.com/anticoders/meteor-fake/)
 * Misc:
-  * [Moment.js](http://momentjs.com/)
+  * [Moment.js](http://momentjs.com/) http://momentjs.com/timezone/
+  * [Moment-timezone.js](https://github.com/acreeger/meteor-moment-timezone) https://github.com/acreeger/meteor-moment-timezone
   * [Underscore.js](http://underscorejs.org/)
   * [Underscore.string](http://epeli.github.io/underscore.string/)
-  * [cunneen:mailgun](https://github.com/cunneen/meteor-mailgun)
 
-## <a name="installation"></a> Installation
-
-1. Clone this repo to `<yourapp>`
-
-  `git clone https://github.com/Differential/meteor-boilerplate.git <yourapp>`
-
-2. Remove `.git`
-
-  `cd <yourapp> && rm -rf .git`
-
-3. Start coding!
-
-## <a name="file-structure"></a> File Structure
-
-We have a common file structure we use across all of our Meteor apps. Client-only files are stored in the `client` directory, server-only files are stored in the `server` directory, and shared files are stored in the `both` directory. The `private` and `public` directories are for either private or public assets.
-
-## <a name="seo"></a> SEO
-
-Page titles, meta descriptions and Facebook and Twitter meta tags are handled by the [yasinuslu:blaze-meta](https://github.com/yasinuslu/blaze-meta) package. Global settings are configured in `both/router/meta.js`, while individual page settings are set at the controller level.
-
-* Note: the `spiderable` package will need to be installed and configured on your server in order for bots to read your meta tags.
-
-```
-PostsShowController = AppController.extend({
-  path: '/posts/:_id',
-  waitOn: function() {
-    return this.subscribe('post', params._id);
-  },
-  data: function() {
-    return {
-      post: Post.find({_id: params._id})
-    };
-  },
-  onAfterAction: function() {
-    if(this.ready()) {
-      Meta.setTitle(this.data().post.title);
-    }
-  }
-});
-```
-
-## <a name="favicons-and-touch-icons"></a> Favicons and Touch Icons
-
-Upload your image to http://realfavicongenerator.net/ and place the resulting images in `public/images/favicons`
-
-## Seed Data
-
-You can use the [dburles:factory](https://github.com/percolatestudio/meteor-factory) and [anti:fake](https://github.com/anticoders/meteor-fake/) packages to generate fake collection data for testing your UI. See `server/seeds.js` for an example:
-
-```
-Meteor.startup(function() {
-
-  Factory.define('item', Items, {
-    name: function() { return Fake.sentence(); },
-    rating: function() { return _.random(1, 5); }
-  });
-
-  if (Items.find({}).count() === 0) {
-
-    _(10).times(function(n) {
-      Factory.create('item');
-    });
-
-  }
-
-});
-
-```

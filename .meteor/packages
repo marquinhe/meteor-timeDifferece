@@ -23,3 +23,10 @@ useraccounts:materialize
 aldeed:autoform
 aldeed:collection2
 gildaspk:autoform-materialize
+jquery
+underscore
+blaze
+templating
+mrt:moment
+mrt:moment-timezone
+joshowens:timezone-picker

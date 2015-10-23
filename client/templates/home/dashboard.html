@@ -2,15 +2,16 @@
   <div class="template-dashboard">
     <a class="btn-floating btn-large waves-effect waves-light red lighten-2 right" href="{{pathFor 'items.new'}}"><i class="mdi-content-add"></i></a>
 
-    <h1>Dashboard</h1>
+    <h5>History Results</h5>
 
     <ul class="collection">
-      {{#each items}}
+      {{#each dates}}
         <li class="collection-item avatar">
           <i class="mdi-action-done circle red lighten-2"></i>
-          <span class="title">{{ name }}</span>
+          <span class="title">Total {{ type }}: {{ substractDate date1 date2 }}</span>
           <p class="truncate">
-            {{ description }}
+           {{ date1 }} - {{ date2 }}
+		   sfsf {{ tz1 }}
           </p>
           <span class="secondary-content"><i class="mdi-action-grade"></i> {{ rating }}</span>
         </li>
