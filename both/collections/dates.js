@@ -10,29 +10,29 @@ Dates.before.insert(function (userId, doc) {
 
 Dates.attachSchema(new SimpleSchema({
     date1: {
-          type: Date,
+          type: String,
           optional: true,
           label: " ",
           //min: new Date(),
           autoform: {
-             value: new Date(), 
+             value: new Date(),
  	         afFieldInput: {
- 	           type: "datetime-local"
+ 	           type: "date"
  	         }
           }
-       }, 
+       },
 	  date2: {
-	           type: Date,
+	           type: String,
 	           optional: true,
 	           label: " ",
 	           //min: new Date(),
 	           autoform: {
-	              value: new Date(), 
+	              value: new Date(),
 	  	         afFieldInput: {
-	  	           type: "datetime-local"
+	  	           type: "date"
 	  	         }
 	           }
-	        }, 
+	        },
      	     type: {
      	        	  label: " ",
      	        	  type: String,
@@ -41,15 +41,17 @@ Dates.attachSchema(new SimpleSchema({
      	                type: "select",
    	                  options: function () {
    	                    return [
+   	                     {label: "minutes", value: "minutes"},
+   	                     {label: "hours", value: "hours"},
    	                     {label: "days", value: "days"},
    	       			     {label: "weekdays", value: "weekdays"},
-   	   					 {label: "weeks", value: "complete weeks"},
-	   					
+   	   					 {label: "weeks", value: "weeks"},
+
    	                    ];
    	                  }
      	              }
-     	            }, 
-					
+     	            },
+
 	     tz1: {
 	        	  label: " ",
 	        	  type: String,
@@ -73,7 +75,7 @@ Dates.attachSchema(new SimpleSchema({
                        return listTimeZones();
                      }
    	              }
-   	            }, 
+   	            },
 }));
 
 
@@ -81,7 +83,7 @@ Dates.attachSchema(new SimpleSchema({
 
 
 function listTimeZones(){
-	
+
 	return [
 {value:"America/Puerto_Rico",label:"Puerto Rico (Atlantic)"},
 {value:"America/New_York",label:"New York (Eastern)"},

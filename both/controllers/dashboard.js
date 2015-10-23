@@ -3,7 +3,7 @@ DashboardController = AppController.extend({
     return this.subscribe('dates');
   },
   data: {
-    dates: Dates.find({})
+    dates: Dates.find({}, { sort: { createdAt: -1 }})
   },
   onAfterAction: function () {
     Meta.setTitle('Challange');
