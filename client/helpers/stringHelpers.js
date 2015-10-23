@@ -6,23 +6,16 @@ Template.registerHelper('truncate', function(string, length) {
 
 Template.registerHelper('substractDate', function(date1, timezone1, date2, timezone2, calculationType) {
 
-    var dateStart = moment.tz(date1, timezone1);
-    var dateEnd = moment.tz(date2, timezone2);
+    dateStart = moment.tz(date1, timezone1);
+    dateEnd = moment.tz(date2, timezone2);
 
-    /*debugging
-    console.log("---");
-    console.log("date:" +cleanDate(date1));
-    console.log("date:" +cleanDate(date2));
-    console.log("DateStart:" + dateEnd.format() + " tz:"+timezone1);
-    console.log("DateEnd:" + dateStart.format() + " tz:"+timezone2);
+	if (calculationType === 'weekdays'){
+		difference = calculateWeekdays(dateStart, dateEnd);
+		//Lib not working: difference = moment(dateEnd).businessDiff(moment(dateStart), calculationType);
 
-    var sameZoneDate = dateEnd.clone().tz(timezone1);
-
-	console.log("sameEnd:" + sameZoneDate.format());
-	console.log("---");
-	**/
-
-	var difference = moment(dateEnd).diff(moment(dateStart), calculationType);
+	}else{
+		difference = moment(dateEnd).diff(moment(dateStart), calculationType);
+	}
   	return difference;
 });
 
@@ -37,3 +30,15 @@ Template.registerHelper('formatDate', function(created) {
 
    return moment(created).format('LL');
 });
+
+function calculateWeekdays(start, end){
+
+	 var first = start.clone().endOf('week'); // end of first week
+	  var last = end.clone().startOf('week'); // start of last week
+	  var days = last.diff(first,'days') * 5 / 7; // this will always multiply of 7
+	  var wfirst = first.day() - start.day(); // check first week
+	  if(start.day() == 0) --wfirst; // -1 if start with sunday
+	  var wlast = end.day() - last.day(); // check last week
+	  if(end.day() == 6) --wlast; // -1 if end with saturday
+  return wfirst + days + wlast; // get the total
+	}
