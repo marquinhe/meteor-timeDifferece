@@ -12,7 +12,7 @@
  
 5. Allow the specification of a timezone for comparison of input parameters from different timezones. 
 
-6. **Live Demo:** Check out [<i class="icon-link"></i> Publish a document](#publish-a-document)
+6. **Live Demo:** http://timechallenge.meteor.com/
 
 ----------
 ## Installation
