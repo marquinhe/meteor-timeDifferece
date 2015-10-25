@@ -1,27 +1,31 @@
 <template name="dashboard">
   <div class="template-dashboard">
-    <a class="btn-floating btn-large waves-effect waves-light red lighten-2 right" href="{{pathFor 'new'}}"><i class="mdi-content-add"></i></a>
+	   <a class="btn-floating btn-large waves-effect waves-light red lighten-2 right" href="{{pathFor 'new'}}"><i class="mdi-content-add"></i></a>
 
-    <h5>History</h5>
+	
+
+    <h5 class="center">History</h5> 
     <div class="">
-		 <select class="equivalents">
-		  <option selected="selected">Choose option</option>
-			 <option value="ms">Miliseconds</option>
-			 <option value="s">Seconds</option>
-			 <option value="m">Minutes</option>
-			 <option value="h">hours</option>
-			 <option value="h">month</option>
-			 <option value="y">year</option>
+		 <select id="unit" class="equivalents">
+		  <option selected="selected">Convert Result into:</option>
+		    <option value="years" {{ isSelected 'years' }}>Convert Result into:years</option>
+			<option value="months" {{ isSelected 'months' }}>Convert Result into:months</option>
+			<option value="days" {{ isSelected 'days' }}>Convert Result into:days</option>
+			<option value="hours" {{ isSelected 'hours' }}>Convert Result into:hours</option>
+			 <option value="minutes" {{ isSelected 'minutes' }}>Convert Result into:minutes</option>
+			 <option value="seconds" {{ isSelected 'seconds' }} >Convert Result into:seconds</option>
+			
 		 </select>
     </div>
 
     <ul class="collection">
       {{#each dates}}
         <li class="collection-item avatar">
-          <i class="mdi-action-done circle red lighten-2"></i>
-          <span class="title">Total {{ type }}: {{ substractDate date1 tz1 date2 tz2 type}} - ({{ duration date1 tz1 date2 tz2 type}})</span>
+          <i class="circle red lighten-2">{{ formatCode type }}</i>
+          <span class="title">Difference: {{ substractDate date1 tz1 date2 tz2 type}} {{ type }}  = {{ duration date1 tz1 date2 tz2 type}}</span>
           <p class="truncate">
-          <strong>From:</strong> {{ formatDate date1 }} -  <strong>To:</strong> {{ formatDate date2 }}
+          <strong>From:</strong> {{ formatDate date1 }} ({{tz1}}) -  
+		  	<strong>To:</strong> {{ formatDate date2 }} ({{ tz2}})
           </p>
           <span class="secondary-content"><i class="mdi-action-grade"></i>   {{ when createdAt }}</span>
         </li>

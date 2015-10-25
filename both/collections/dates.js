@@ -17,7 +17,7 @@ Dates.attachSchema(new SimpleSchema({
           autoform: {
              value: new Date(),
  	         afFieldInput: {
- 	           type: "date"
+ 	           type: "datetime-local"
  	         }
           }
        },
@@ -29,7 +29,7 @@ Dates.attachSchema(new SimpleSchema({
 	           autoform: {
 	              value: new Date(),
 	  	         afFieldInput: {
-	  	           type: "date"
+	  	           type: "datetime-local"
 	  	         }
 	           }
 	        },

@@ -30,4 +30,8 @@ templating
 mrt:moment
 mrt:moment-timezone
 joshowens:timezone-picker
-hellotech:meteor-momentjs-business
+sanjo:jasmine
+practicalmeteor:sinon
+velocity:html-reporter
+aldeed:autoform-bs-datetimepicker
+tsega:bootstrap3-datetimepicker
